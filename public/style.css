@@ -36,3 +36,30 @@ body {
     align-items: center;
     justify-content: center;
 }
+
+/* Estilo para melhorar a aparência do SweetAlert */
+.swal2-popup {
+    background: #fff !important;
+    border-radius: 10px !important;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2) !important;
+}
+
+.swal2-title {
+    color: #333 !important;
+}
+
+.swal2-content {
+    color: #555 !important;
+}
+
+/* Sobrescrevendo estilos problemáticos que possam estar afetando o SweetAlert */
+.swal2-container {
+    z-index: 9999 !important; 
+    position: fixed !important;
+}
+
+/* Garantindo que o SweetAlert apareça centralizado */
+.swal2-shown {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+}

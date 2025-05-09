@@ -21,17 +21,31 @@
     </div>
 </body>
 <script>
- function validarFormulario(){
-    var tarefa = document.getElementsByName("task")[0].value; // <-- nome correto
+ function validarFormulario(event){
+    if(event) {
+        event.preventDefault();
+    }
+    var tarefa = document.getElementsByName("task")[0].value;
     if(tarefa.trim() === ''){
         Swal.fire({
-            icon:'error',
+            icon: 'error',
             title: 'Oops...',
             text: 'Por favor, preencha a tarefa antes de enviar',
+            heightAuto: false,       
+            allowOutsideClick: true,    
+            scrollbarPadding: false,    
+            showClass: {
+                popup: 'swal2-noanimation',
+            },
+            customClass: {
+                container: 'position-fixed'
+            }
         });
         return false;
+    } else {
+        document.getElementsByTagName("form")[0].submit();
     }
-    return true;
+    return false; 
 }
 </script>
 </html>
