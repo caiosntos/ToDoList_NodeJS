@@ -8,6 +8,7 @@
 
 html, body {
     height: 100%;
+    margin: 0;
 }
 
 body {
@@ -19,7 +20,9 @@ body {
     justify-content: center;
     align-items: center;
     height: 100%;
+    overflow: hidden;
 }
+
 
 .tarefas {
     max-width: 700px;

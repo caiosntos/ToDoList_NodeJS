@@ -6,12 +6,13 @@
     <title>TODOLIST NODE</title>
     <link rel="stylesheet" href="/public/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body class="container">
     <div class="tarefas">
         <h3> TODOLIST NODE</h3>
-        <form class="d-flex" method="post" onsubmit="return validarFormulario()">
-            <input type="text" name="tarefa" class="form-control">
+        <form class="d-flex" method="post" onsubmit="return validarFormulario(event)">
+            <input type="text" name="task" class="form-control">
             <input type="submit" name="acao" class="btn btn-primary" value="Inserir">
         </form>
         <% for(let i = 0; i<taskslist.length; i++){ %>
@@ -20,13 +21,17 @@
     </div>
 </body>
 <script>
-    function validarFormulario(){
-        var tarefa = document.getElementsByName("tarefa")[0].value;
-        if(tarefa.trim()===''){
-            alert("Por Favor, preencha a tarefas antes de enviar");
-            return false;
-        }
-        return true
+ function validarFormulario(){
+    var tarefa = document.getElementsByName("task")[0].value; // <-- nome correto
+    if(tarefa.trim() === ''){
+        Swal.fire({
+            icon:'error',
+            title: 'Oops...',
+            text: 'Por favor, preencha a tarefa antes de enviar',
+        });
+        return false;
     }
+    return true;
+}
 </script>
 </html>
